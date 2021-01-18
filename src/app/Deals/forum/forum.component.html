@@ -1,1 +1,11 @@
-<p>forum works!</p>
+<div class="card-deck" >
+  <div class="card" *ngFor="let item of deals">
+    <img class="card-img-top" src="{{'./assets/user.png'}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title" *ngIf="item.title.length < 20">{{item.title}}</h5>
+      <h5 class="card-title" *ngIf="item.title.length > 20">{{item.title.slice(0,20) + '...'}}</h5>
+      <p class="card-text">{{item.price|currency}}</p>
+      <p class="card-text"><small class="text-muted">{{item.created |date}}</small></p>
+    </div>
+  </div>
+</div>
