@@ -11,13 +11,15 @@ import { AccountService } from './Service/account.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './modules/shared/shared.module';
 import { FrontPageComponent } from './front-page/front-page.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
-    FrontPageComponent
+    FrontPageComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
