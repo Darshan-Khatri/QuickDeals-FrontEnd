@@ -6,19 +6,29 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AccountService } from './Service/account.service';
+import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from './modules/shared/shared.module';
+import { FrontPageComponent } from './front-page/front-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    HomeComponent
+    HomeComponent,
+    FrontPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    SharedModule,
   ],
-  providers: [],
+  providers: [AccountService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
