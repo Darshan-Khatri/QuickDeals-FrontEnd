@@ -8,10 +8,13 @@ import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountService } from './Service/account.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from './modules/shared/shared.module';
 import { FrontPageComponent } from './front-page/front-page.component';
 import { RegisterComponent } from './register/register.component';
+import { ForumComponent } from './Deals/forum/forum.component';
+import { DealCardComponent } from './Deals/deal-card/deal-card.component';
+import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { RegisterComponent } from './register/register.component';
     NavComponent,
     HomeComponent,
     FrontPageComponent,
-    RegisterComponent
+    RegisterComponent,
+    ForumComponent,
+    DealCardComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,9 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     SharedModule,
   ],
-  providers: [AccountService,],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
