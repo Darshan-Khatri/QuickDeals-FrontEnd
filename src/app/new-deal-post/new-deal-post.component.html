@@ -1,0 +1,36 @@
+<form #newPost = "ngForm" id="newPost" (ngSubmit)="PostDeal()" >
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control"
+    placeholder="Deal or product name with price (e.g. 60&quot; Samsung 4K TV $600 + Free Shipping)"
+    name="title" [(ngModel)]="Deal.title">
+  </div>
+  <div class="form-group">
+    <label for="content">Content</label>
+    <textarea class="form-control" name="content"
+    placeholder="Provide deal details including the Deal URL, store and product information
+    Example:
+    Amazon  has 60 Samsung UN60KU6300 4K TV for $600 + Free Shipping" [(ngModel)]="Deal.content"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="url">Url</label>
+    <input type="text" class="form-control"  placeholder="amazon.com" name="url" [(ngModel)]="Deal.url">
+  </div>
+  <div class="form-group">
+    <label for="category">Category</label>
+    <select name="category" class="form-control" [(ngModel)]="Deal.category">
+      <option value="Other">Other</option>
+      <option value="Electronics">Electronics</option>
+      <option value="HouseHold">HouseHold</option>
+      <option value="Kids">Kids</option>
+      <option value="Education">Education</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input type="number" class="form-control" placeholder="50.54" name="price" [(ngModel)]="Deal.price">
+  </div>
+  <button class="btn btn-outline-success float-lg-right" type="submit">Post</button>
+</form>
+
+

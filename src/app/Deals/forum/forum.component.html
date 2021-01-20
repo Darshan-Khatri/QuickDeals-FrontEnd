@@ -1,11 +1,19 @@
-<div class="card-deck" >
-  <div class="card" *ngFor="let item of deals">
-    <img class="card-img-top" src="{{'./assets/user.png'}}" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title" *ngIf="item.title.length < 20">{{item.title}}</h5>
-      <h5 class="card-title" *ngIf="item.title.length > 20">{{item.title.slice(0,20) + '...'}}</h5>
-      <p class="card-text">{{item.price|currency}}</p>
-      <p class="card-text"><small class="text-muted">{{item.created |date}}</small></p>
+<div class="card-deck ">
+  <div class="row">
+    <div class="col-3" *ngFor="let item of deals">
+      <div class="card">
+        <img class="card-img-top" src="{{'./assets/user.png'}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title" *ngIf="item.title.length < 20">{{item.title}}</h5>
+          <h5 class="card-title" *ngIf="item.title.length > 20">{{item.title.slice(0,20) + '...'}}</h5>
+          <!-- <i class=" fa-heart has-success">{{item.likes}}</i> -->
+          <button class="btn btn-outline-success"><i class="fa fa-thumbs-up"></i> {{item.likes}}</button>
+          <button class="btn btn-outline-danger"><i class="fa fa-thumbs-down"></i> {{item.disLikes}}</button>
+          <p class="card-text">{{item.price|currency}}</p>
+          <p class="card-text"><small class="text-muted">{{item.created |date}}</small></p>
+          <small class="text-muted"> <i class="fa fa-user-circle-o"></i> {{item.creator}}</small>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -8,4 +8,7 @@ export interface Deal {
   category: string;
   price: Number;
   created: Date;
+  creator: string;
+  likes: number;
+  disLikes: number;
 }
