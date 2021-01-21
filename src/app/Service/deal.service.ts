@@ -18,4 +18,12 @@ export class DealService {
   PostDeal(body: NewDeal) {
     return this.http.post<NewDeal>(this.baseUrl + 'deals/PostNewDeal', body);
   }
+
+  AddLike(id: number) {
+    return this.http.post(this.baseUrl + 'ratings/AddLike/' + id , {});
+  }
+
+  AddDisLike(id: number) {
+    return this.http.post(this.baseUrl + 'ratings/AddDislike/' + id , {});
+  }
 }

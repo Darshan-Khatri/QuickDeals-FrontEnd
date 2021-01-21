@@ -6,12 +6,13 @@
         <div class="card-body">
           <h5 class="card-title" *ngIf="item.title.length < 20">{{item.title}}</h5>
           <h5 class="card-title" *ngIf="item.title.length > 20">{{item.title.slice(0,20) + '...'}}</h5>
-          <!-- <i class=" fa-heart has-success">{{item.likes}}</i> -->
-          <button class="btn btn-outline-success"><i class="fa fa-thumbs-up"></i> {{item.likes}}</button>
-          <button class="btn btn-outline-danger"><i class="fa fa-thumbs-down"></i> {{item.disLikes}}</button>
+          <button class="btn btn-outline-success" (click)="addLike(item.id)"><i class="fa fa-thumbs-up"></i>
+            {{item.likes}}</button>
+          <button class="btn btn-outline-danger" (click)="addDislike(item.id)"><i class="fa fa-thumbs-down"></i>
+            {{item.disLikes}}</button>
           <p class="card-text">{{item.price|currency}}</p>
           <p class="card-text"><small class="text-muted">{{item.created |date}}</small></p>
-          <small class="text-muted"> <i class="fa fa-user-circle-o"></i> {{item.creator}}</small>
+          <small class="text-muted"> <i class="fa fa-user-circle-o"></i> {{item.creator |titlecase}}</small>
         </div>
       </div>
     </div>
