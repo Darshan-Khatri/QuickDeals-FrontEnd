@@ -12,4 +12,10 @@ export interface Deal {
   creator: string;
   likes: number;
   disLikes: number;
+  photos: Photo[];
+}
+
+interface Photo {
+  id: number;
+  url: string;
 }

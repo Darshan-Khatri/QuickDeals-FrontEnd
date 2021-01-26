@@ -11,7 +11,13 @@ import { DealService } from '../Service/deal.service';
 })
 export class NewDealPostComponent implements OnInit {
 
-  Deal: any = {} ;
+  Deal: any = {
+    title: "",
+    content: "",
+    url: "",
+    category: "",
+    price: 0,
+  }
   constructor(
     private dealService: DealService,
     private router: Router,
@@ -19,12 +25,47 @@ export class NewDealPostComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   PostDeal() {
-    this.dealService.PostDeal(this.Deal).subscribe(() => {
+    let formData = this.toFormData(this.Deal);
+
+    for (var i = 0; i < this.Deal.file.length; i++) {
+      //console.log(this.Deal.file[i]);
+      formData.append("file[]", this.Deal.file[i]);
+    }
+
+    this.dealService.PostDeal(formData).subscribe(() => {
       this.toastr.success('Deal posted successfully!!');
     },
-      err => this.toastr.error(err.error),
+      err => { (this.toastr.error(err.error)); console.log(err.error) },
       () => this.router.navigateByUrl('/forumPage')
     );
+
+    formData.forEach(function (value, key) {
+      console.log(key, value);
+    });
+  }
+
+  // FormDataObject() {
+  //   this.formData.append('title', this.Deal.title);
+  //   this.formData.append('content', this.Deal.content);
+  //   this.formData.append('url', this.Deal.url);
+  //   this.formData.append('category', this.Deal.category);
+  //   this.formData.append('price', this.Deal.price);
+  //   this.formData.append('file', this.Deal.photos);
+  // }
+
+  toFormData<T>(formValues: T) {
+    const formData = new FormData();
+    for (const key of Object.keys(formValues)) {
+      const value = formValues[key];
+      formData.append(key, value);
+    }
+    return formData;
+  }
+
+  uploadFile(files, event: Event) {
+    let fileToUpload = <File>files;
+    this.Deal.file = fileToUpload;
   }
 }

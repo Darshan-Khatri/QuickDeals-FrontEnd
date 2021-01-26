@@ -15,8 +15,8 @@ export class DealService {
     return this.http.get<Deal[]>(this.baseUrl + 'deals/GetDeals');
   }
 
-  PostDeal(body: NewDeal) {
-    return this.http.post<NewDeal>(this.baseUrl + 'deals/PostNewDeal', body);
+  PostDeal(body: any) {
+    return this.http.post<any>(this.baseUrl + 'deals/PostNewDeal', body);
   }
 
   AddLike(id: number) {
