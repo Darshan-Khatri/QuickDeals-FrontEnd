@@ -1,0 +1,44 @@
+<div *ngIf="deal" class="container card" style="border: 2px solid rgb(111, 0, 139);">
+
+  <div class="row">
+    <h2 class="col-12">{{deal.title |titlecase}}</h2>
+    <h3 class="col font-weight-bold">{{deal.price|currency}}</h3>
+  </div>
+  <div class="row">
+    <div class="col-7">
+      <hr>
+      <span class="badge badge-secondary" style="font-size: medium;">+{{deal.likes - deal.disLikes}} Deal Score</span>
+      <span><button class="btn btn-outline-success p-1 ml-4 mb-1" style="width: 40px;">
+          <i class="fa fa-thumbs-up">{{deal.likes}}</i></button></span>
+      <span> <button class="btn btn-outline-danger p-1 ml-1 mb-1" style="width: 40px;"> <i
+            class="fa fa-thumbs-down">{{deal.disLikes}}</i></button></span>
+      <hr>
+      <div class="content" style="white-space: pre-wrap;">
+        {{deal.content}}
+      </div>
+    </div>
+    <div  class="col-5">
+      <carousel>
+        <slide *ngFor="let photo of deal.photos">
+          <img src="{{photo.url}}" alt="first slide">
+        </slide>
+      </carousel>
+      <div>
+        <button class="btn btn-success w-100">See Deal</button>
+        <div class="mt-2">
+          <hr>
+          <span class="text-muted">Deal Posted by </span><i class="fa fa-user fa-1x"></i><span class="text-muted">
+            {{deal.creator|titlecase}}</span> <span class="float-right mr-5" style="margin-top: -4px;">Good deal?</span><br>
+          <span class="text-muted">Deal Created on </span><i class="fa fa-calendar-times-o fa-1x"></i><span
+            class="text-muted"> {{deal.created|date}}</span>
+            <div class="float-right mr-5" style="margin-top: -5px;">
+              <span><button class="btn btn-outline-success p-1" style="width: 30px;"><i class="fa fa-thumbs-up"></i></button></span>
+              <span><button class="btn btn-outline-danger ml-1 p-1" style="width: 30px;"><i class="fa fa-thumbs-down"></i></button></span>
+            </div>
+          <span></span>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

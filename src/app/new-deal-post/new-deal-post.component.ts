@@ -16,7 +16,6 @@ export class NewDealPostComponent implements OnInit {
     content: "",
     url: "",
     category: "",
-    price: 0,
   }
   constructor(
     private dealService: DealService,

@@ -20,10 +20,14 @@ export class DealService {
   }
 
   AddLike(id: number) {
-    return this.http.post(this.baseUrl + 'ratings/AddLike/' + id , {});
+    return this.http.post(this.baseUrl + 'ratings/AddLike/' + id, {});
   }
 
   AddDisLike(id: number) {
-    return this.http.post(this.baseUrl + 'ratings/AddDislike/' + id , {});
+    return this.http.post(this.baseUrl + 'ratings/AddDislike/' + id, {});
+  }
+
+  GetDeal(dealId: number) {
+    return this.http.get<Deal>(this.baseUrl + 'deals/GetDeal/' + dealId);
   }
 }

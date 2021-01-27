@@ -1,0 +1,15 @@
+slide {
+  width: 50px;
+  height: 300px;
+  text-align: center;
+}
+
+img {
+  width: 28rem;
+  height: 18rem;
+}
+
+.content {
+  font-size: 15px;
+}
+

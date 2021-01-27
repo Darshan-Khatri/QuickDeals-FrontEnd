@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { DealBodyComponent } from './Deals/deal-body/deal-body.component';
 import { ForumComponent } from './Deals/forum/forum.component';
 import { FrontPageComponent } from './front-page/front-page.component';
 import { HomeComponent } from './home/home.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: 'frontPage', component: FrontPageComponent },
       { path: 'forumPage', component: ForumComponent },
       { path: 'newPost', component: NewDealPostComponent },
+      { path: 'dealContent/:dealId', component: DealBodyComponent },
     ]
   },
   { path: 'register', component: RegisterComponent },
