@@ -29,6 +29,7 @@ export class ForumComponent implements OnInit {
   }
 
   addLike(dealId: number, event: Event) {
+    console.log(`event`, event);
     event.stopPropagation();
     this.dealService.AddLike(dealId).subscribe((likesCount) => {
       console.log(`likes count = ${+likesCount}`);

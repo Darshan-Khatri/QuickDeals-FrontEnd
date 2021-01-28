@@ -13,10 +13,14 @@
         <li class="nav-item">
           <a class="nav-link " routerLink='/errors' routerLinkActive='active'>Errors</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link " routerLink='/newPost' routerLinkActive='active'>New Post</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " *ngIf="(accountService.currentUser$ | async).roles === 'Admin'"
+          routerLink='/admin' routerLinkActive='active'>Notification</a>
+        </li>
       </ng-container>
-      <li class="nav-item">
-        <a class="nav-link " routerLink='/newPost' routerLinkActive='active'>New Post</a>
-      </li>
     </ul>
 
     <!-- Async pipe is used to automatically subscribe service method without calling subscribe method explicitly.

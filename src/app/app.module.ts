@@ -17,6 +17,7 @@ import { DealCardComponent } from './Deals/deal-card/deal-card.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { NewDealPostComponent } from './new-deal-post/new-deal-post.component';
 import { DealBodyComponent } from './Deals/deal-body/deal-body.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DealBodyComponent } from './Deals/deal-body/deal-body.component';
     ForumComponent,
     DealCardComponent,
     NewDealPostComponent,
-    DealBodyComponent
+    DealBodyComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
