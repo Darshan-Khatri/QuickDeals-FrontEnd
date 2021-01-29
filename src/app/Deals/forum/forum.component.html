@@ -1,4 +1,4 @@
-<div class="card-deck ">
+<!-- <div class="card-deck ">
   <div class="row">
     <div class="col-3" *ngFor="let item of deals">
       <div class="card" (click)="navigateToDealBody(item.id, $event)">
@@ -16,6 +16,13 @@
           <small class="text-muted"> <i class="fa fa-user-circle-o"></i> {{item.creator |titlecase}}</small>
         </div>
       </div>
+    </div>
+  </div>
+</div> -->
+<div class="row">
+  <div class="card-deck">
+    <div class="col-2 p-0" *ngFor="let deal of deals">
+      <app-deal-card (likeDeal)="addLike(deal.id)" (dislikeDeal)="addDislike(deal.id)" [deal] = "deal"></app-deal-card>
     </div>
   </div>
 </div>

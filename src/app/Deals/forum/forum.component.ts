@@ -28,24 +28,24 @@ export class ForumComponent implements OnInit {
     }, err => console.log(err));
   }
 
-  addLike(dealId: number, event: Event) {
-    console.log(`event`, event);
-    event.stopPropagation();
+  addLike(dealId: number) {
+    // console.log(`event`, event);
+    // event.stopPropagation();
     this.dealService.AddLike(dealId).subscribe((likesCount) => {
       console.log(`likes count = ${+likesCount}`);
       this.deals.find(x => x.id == dealId).likes = +likesCount;
     }, err => this.toastr.error(err.error));
   }
 
-  addDislike(dealId: number,  event: Event) {
-    event.stopPropagation();
+  addDislike(dealId: number) {
+    // event.stopPropagation();
     this.dealService.AddDisLike(dealId).subscribe((DislikesCount) => {
       console.log(`Dislikes count = ${+DislikesCount}`);
       this.deals.find(x => x.id == dealId).disLikes = +DislikesCount;
     }, err => this.toastr.error(err.error));
   }
 
-  navigateToDealBody(dealId:number, event: Event) {
-    this.router.navigateByUrl('dealContent/' + dealId);
-  }
+  // navigateToDealBody(dealId:number, event: Event) {
+  //   this.router.navigateByUrl('dealContent/' + dealId);
+  // }
 }

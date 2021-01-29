@@ -1,19 +1,12 @@
-<!-- <div class="card mb-2" style="width: 13rem;">
-  <img src="{{deal.photos[1].url}}" class="card-img-top" alt="Image">
-  <div class="card-body">
-    <h5 class="card-title" *ngIf="deal.title.length < 20">{{deal.title}}</h5>
-    <h5 class="card-title" *ngIf="deal.title.length > 20">{{deal.title.slice(0,20) + '...'}}</h5>
-    <p class="card-text">{{deal.price |currency}}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div> -->
 
 <div class="card mb-2" (click)="navigateToDealBody(deal.id)">
   <img class="card-img-top" *ngIf="deal.photos.length > 0" src="{{deal.photos[0].url}}" alt="Card image cap">
   <img class="card-img-top" *ngIf="deal.photos.length == 0" src="{{'./assets/user.png'}}" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title" *ngIf="deal.title.length < 20">{{deal.title}}</h5>
-    <h5 class="card-title" *ngIf="deal.title.length > 20">{{deal.title.slice(0,20) + '...'}}</h5>
+    <div style="height:40px">
+      <h5 class="card-title" style="font-size: 11px;" *ngIf="deal.title.length < 40">{{deal.title}}</h5>
+      <h5 class="card-title" style="font-size: 11px;" *ngIf="deal.title.length > 40">{{deal.title.slice(0,40) + '...'}}</h5>
+    </div>
     <button class="btn btn-outline-success" (click)="addLike(deal.id,$event)"><i class="fa fa-thumbs-up"></i>
       {{deal.likes}}</button>
     <button class="btn btn-outline-danger" (click)="addDislike(deal.id,$event)"><i class="fa fa-thumbs-down"></i>
@@ -26,24 +19,3 @@
 
 
 
-<!-- <div class="card-deck ">
-  <div class="row">
-    <div class="col-3" *ngFor="let item of deals">
-      <div class="card" (click)="navigateToDealBody(item.id, $event)">
-        <img class="card-img-top" *ngIf="item.photos.length > 0" src="{{item.photos[0].url}}" alt="Card image cap">
-        <img class="card-img-top" *ngIf="item.photos.length == 0" src="{{'./assets/user.png'}}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title" *ngIf="item.title.length < 20">{{item.title}}</h5>
-          <h5 class="card-title" *ngIf="item.title.length > 20">{{item.title.slice(0,20) + '...'}}</h5>
-          <button class="btn btn-outline-success" (click)="addLike(item.id, $event)"><i class="fa fa-thumbs-up"></i>
-            {{item.likes}}</button>
-          <button class="btn btn-outline-danger" (click)="addDislike(item.id, $event)"><i class="fa fa-thumbs-down"></i>
-            {{item.disLikes}}</button>
-          <p class="card-text">{{item.price|currency}}</p>
-          <p class="card-text"><small class="text-muted">{{item.created |date}}</small></p>
-          <small class="text-muted"> <i class="fa fa-user-circle-o"></i> {{item.creator |titlecase}}</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->

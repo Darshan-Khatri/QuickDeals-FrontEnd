@@ -8,7 +8,7 @@
     <div class="col-7">
       <hr>
       <span class="badge badge-secondary" style="font-size: medium;">+{{deal.likes - deal.disLikes}} Deal Score</span>
-      <span><button class="btn btn-outline-success p-1 ml-4 mb-1" style="width: 40px;">
+      <span><button class="btn btn-outline-success p-1 ml-4 mb-1" (click)="addLike(deal.id)" style="width: 40px;">
           <i class="fa fa-thumbs-up">{{deal.likes}}</i></button></span>
       <span> <button class="btn btn-outline-danger p-1 ml-1 mb-1" style="width: 40px;"> <i
             class="fa fa-thumbs-down">{{deal.disLikes}}</i></button></span>

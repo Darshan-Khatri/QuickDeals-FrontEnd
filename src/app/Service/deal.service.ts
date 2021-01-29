@@ -20,7 +20,7 @@ export class DealService {
   }
 
   AddLike(id: number) {
-    return this.http.post(this.baseUrl + 'ratings/AddLike/' + id, {});
+    return this.http.post<any>(this.baseUrl + 'ratings/AddLike/' + id, {});
   }
 
   AddDisLike(id: number) {

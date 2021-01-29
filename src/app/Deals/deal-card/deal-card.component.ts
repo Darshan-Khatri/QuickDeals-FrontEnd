@@ -11,10 +11,10 @@ import { DealService } from 'src/app/Service/deal.service';
 export class DealCardComponent implements OnInit {
 
   @Input() deal : Deal;
-  @Output() updateDeal = new EventEmitter<any>();
+  @Output() likeDeal = new EventEmitter<any>();
+  @Output() dislikeDeal = new EventEmitter<any>();
 
   constructor(
-    private dealService: DealService,
     private router: Router,
   ) { }
 
@@ -24,12 +24,12 @@ export class DealCardComponent implements OnInit {
 
   addLike(dealId: number, event: Event) {
     event.stopPropagation();
-    this.updateDeal.emit(dealId);
+    this.likeDeal.emit(dealId);
   }
 
   addDislike(dealId: number,  event: Event) {
     event.stopPropagation();
-    this.updateDeal.emit(dealId);
+    this.dislikeDeal.emit(dealId);
   }
 
   navigateToDealBody(dealId:number) {
