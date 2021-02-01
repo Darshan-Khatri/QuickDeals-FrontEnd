@@ -19,9 +19,9 @@
     </div>
   </div>
 </div> -->
-<div class="row">
+<div class="row" style="padding:48px; margin: 57px;">
   <div class="card-deck">
-    <div class="col-2 p-0" *ngFor="let deal of deals">
+    <div class="col-3 p-0" *ngFor="let deal of deals">
       <app-deal-card (likeDeal)="addLike(deal.id)" (dislikeDeal)="addDislike(deal.id)" [deal] = "deal"></app-deal-card>
     </div>
   </div>

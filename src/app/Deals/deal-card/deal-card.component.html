@@ -1,5 +1,5 @@
 
-<div class="card mb-2" (click)="navigateToDealBody(deal.id)">
+<div class="card mb-2" style="margin-left: -7px;" (click)="navigateToDealBody(deal.id)">
   <img class="card-img-top" *ngIf="deal.photos.length > 0" src="{{deal.photos[0].url}}" alt="Card image cap">
   <img class="card-img-top" *ngIf="deal.photos.length == 0" src="{{'./assets/user.png'}}" alt="Card image cap">
   <div class="card-body">

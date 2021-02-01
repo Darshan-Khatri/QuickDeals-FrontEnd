@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Deal } from '../models/deal';
+import { AdminService } from '../Service/admin.service';
 import { DealService } from '../Service/deal.service';
 
 @Component({
@@ -10,14 +11,19 @@ import { DealService } from '../Service/deal.service';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private dealService: DealService, private toastr: ToastrService) { }
+  constructor(
+    private dealService: DealService,
+    private toastr: ToastrService,
+    private adminService: AdminService,
+    ) { }
+
   deals: Deal[] = [];
   ngOnInit(): void {
-    this.getAllDeals();
+    this.GetQualifiedDeals();
   }
 
-  getAllDeals() {
-    this.dealService.GetAllDeal().subscribe(deals => {
+  GetQualifiedDeals() {
+    this.adminService.GetQualifiedDeals().subscribe(deals => {
       this.deals = deals;
     })
   }
