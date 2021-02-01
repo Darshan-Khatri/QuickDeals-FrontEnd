@@ -30,4 +30,8 @@ export class DealService {
   GetDeal(dealId: number) {
     return this.http.get<Deal>(this.baseUrl + 'deals/GetDeal/' + dealId);
   }
+
+  GetFrontPageDeals() {
+    return this.http.get<Deal[]>(this.baseUrl + 'deals/FrontPageDeals');
+  }
 }
