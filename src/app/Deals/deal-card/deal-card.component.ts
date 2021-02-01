@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Deal } from 'src/app/models/deal';
+import { AccountService } from 'src/app/Service/account.service';
 import { DealService } from 'src/app/Service/deal.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class DealCardComponent implements OnInit {
 
   constructor(
     private router: Router,
+    public accountService: AccountService,
   ) { }
 
   ngOnInit(): void {

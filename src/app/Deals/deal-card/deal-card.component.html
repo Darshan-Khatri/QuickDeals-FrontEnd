@@ -7,9 +7,9 @@
       <h5 class="card-title" style="font-size: 11px;" *ngIf="deal.title.length < 40">{{deal.title}}</h5>
       <h5 class="card-title" style="font-size: 11px;" *ngIf="deal.title.length > 40">{{deal.title.slice(0,40) + '...'}}</h5>
     </div>
-    <button class="btn btn-outline-success" (click)="addLike(deal.id,$event)"><i class="fa fa-thumbs-up"></i>
+    <button class="mybtn btn btn-outline-success" (click)="addLike(deal.id,$event)"><i class="fa fa-thumbs-up"></i>
       {{deal.likes}}</button>
-    <button class="btn btn-outline-danger" (click)="addDislike(deal.id,$event)"><i class="fa fa-thumbs-down"></i>
+    <button class="mybtn btn btn-outline-danger" (click)="addDislike(deal.id,$event)"><i class="fa fa-thumbs-down"></i>
       {{deal.disLikes}}</button>
     <p class="card-text">{{deal.price|currency}}</p>
     <p class="card-text"><small class="text-muted">{{deal.created |date}}</small></p>
