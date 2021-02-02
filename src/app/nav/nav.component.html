@@ -16,10 +16,22 @@
         <li class="nav-item">
           <a class="nav-link " routerLink='/newPost' routerLinkActive='active'>New Post</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link " *ngIf="(accountService.currentUser$ | async).roles === 'Admin'"
-          routerLink='/admin' routerLinkActive='active'>Notification</a>
-        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link " *ngIf="(accountService.currentUser$ | async).roles === 'Admin'" routerLink='/admin'
+            routerLinkActive='active'>Notification</a>
+        </li> -->
+
+        <div class="btn-group" *ngIf="(accountService.currentUser$ | async).roles === 'Admin'" dropdown>
+          <button id="button-animated" dropdownToggle type="button" class="adminBtn dropdown-toggle"
+            aria-controls="dropdown-animated">
+            Admin panel <span class="caret"></span>
+          </button>
+          <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-animated">
+            <li role="menuitem"><a class="dropdown-item" routerLink='/admin'
+              routerLinkActive='active'>FrontPage deals selection</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Role management</a></li>
+          </ul>
+        </div>
       </ng-container>
     </ul>
 

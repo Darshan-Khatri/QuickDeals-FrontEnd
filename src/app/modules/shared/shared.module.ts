@@ -14,6 +14,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
       positionClass: 'toast-bottom-right'
     }),
     CarouselModule.forRoot(),
+
   ],
 
   exports: [
