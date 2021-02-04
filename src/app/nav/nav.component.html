@@ -21,7 +21,7 @@
             routerLinkActive='active'>Notification</a>
         </li> -->
 
-        <div class="btn-group" *ngIf="(accountService.currentUser$ | async).roles === 'Admin'" dropdown>
+        <div class="btn-group" *ngIf="(accountService.currentUser$ | async).roles.includes('Admin' || 'Member')" dropdown>
           <button id="button-animated" dropdownToggle type="button" class="adminBtn dropdown-toggle"
             aria-controls="dropdown-animated">
             Admin panel <span class="caret"></span>

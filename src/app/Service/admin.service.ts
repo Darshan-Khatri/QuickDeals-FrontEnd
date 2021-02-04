@@ -30,4 +30,11 @@ export class AdminService {
       return this.http.post(this.baseUrl + 'admin/reject/' + dealId, {});
     }
 
+    GetUserRole(username: string) {
+      return this.http.get(this.baseUrl + 'GetRoles/' + username);
+    }
+
+    EditUserRole(username: string, roles: string[]) {
+      return this.http.post(this.baseUrl + 'edit-user-role/' + username + '?roles=' + roles, {});
+    }
 }

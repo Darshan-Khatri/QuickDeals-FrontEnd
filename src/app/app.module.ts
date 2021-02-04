@@ -18,6 +18,8 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { NewDealPostComponent } from './new-deal-post/new-deal-post.component';
 import { DealBodyComponent } from './Deals/deal-body/deal-body.component';
 import { AdminComponent } from './admin/admin.component';
+import { UserManagementComponent } from './admin/user-management/user-management.component';
+import { EditUserRoleModalComponent } from './admin/edit-user-role-modal/edit-user-role-modal.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { AdminComponent } from './admin/admin.component';
     DealCardComponent,
     NewDealPostComponent,
     DealBodyComponent,
-    AdminComponent
+    AdminComponent,
+    UserManagementComponent,
+    EditUserRoleModalComponent
   ],
   imports: [
     BrowserModule,

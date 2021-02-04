@@ -18,7 +18,7 @@ export class AdminGuard implements CanActivate {
   canActivate(): Observable<boolean>  {
     return this.accountService.currentUser$.pipe(
       map(user => {
-        if(user.roles === 'Admin') return true;
+        if(user.roles.includes('Admin' || 'Member')) return true;
         this.toastr.error('You are unauthorized to use this service');
       })
     );

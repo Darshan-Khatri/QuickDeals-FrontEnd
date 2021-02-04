@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
+import { UserManagementComponent } from './admin/user-management/user-management.component';
 import { DealBodyComponent } from './Deals/deal-body/deal-body.component';
 import { ForumComponent } from './Deals/forum/forum.component';
 import { FrontPageComponent } from './front-page/front-page.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
     ]
   },
   { path: 'register', component: RegisterComponent },
+  { path: 'userManagement', component: UserManagementComponent },
 ];
 
 @NgModule({
