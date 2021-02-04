@@ -31,10 +31,10 @@ export class AdminService {
     }
 
     GetUserRole(username: string) {
-      return this.http.get(this.baseUrl + 'GetRoles/' + username);
+      return this.http.get<string[]>(this.baseUrl + 'admin/GetRoles/' + username);
     }
 
     EditUserRole(username: string, roles: string[]) {
-      return this.http.post(this.baseUrl + 'edit-user-role/' + username + '?roles=' + roles, {});
+      return this.http.post(this.baseUrl + 'admin/edit-user-role/' + username + '?roles=' + roles, {});
     }
 }

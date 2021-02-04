@@ -14,7 +14,9 @@ export class EditUserRoleModalComponent implements OnInit {
   constructor(public bsModalRef: BsModalRef) { }
 
   ngOnInit(): void {
-    this.list.push('PROFIT!!!');
   }
 
+  updateUserRole() {
+    this.bsModalRef.hide()
+  }
 }

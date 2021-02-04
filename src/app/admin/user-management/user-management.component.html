@@ -1,12 +1,16 @@
-<!-- <div class="modal-header">
-  <h4 class="modal-title pull-left">User management</h4>
+<div class="text-xl-center mx-auto" style="width: 500px;">
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Username</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of this.members">
+        <td>{{item.username}}</td>
+        <td> <button class=" btn btn-sm btn-outline-dark" (click)="GetUserRole(item.username)">Edit role</button></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<div class="modal-body">
-    <p>Edit user role here</p>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-success" (click)="confirm()">Submit</button>
-  <button type="button" class="btn btn-danger" (click)="decline()">Cancel</button>
-</div> -->
-<h1>User management</h1>
-<button type="button" class="btn btn-primary" (click)="openModalWithComponent()">Create modal with component</button>

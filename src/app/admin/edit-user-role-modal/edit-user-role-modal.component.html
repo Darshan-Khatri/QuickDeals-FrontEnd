@@ -1,16 +1,17 @@
-<p>edit-user-role-modal works!</p>
-<div class="modal-header">
-  <h4 class="modal-title pull-left">{{title}}</h4>
-  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<div class="modal-body">
-  <ul *ngIf="list.length">
-    <li *ngFor="let item of list">{{item}}</li>
-  </ul>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{closeBtnName}}</button>
-  <button type="button" class="btn btn-outline-primary" (click)="bsModalRef.hide()">Submit</button>
+<div class="card text-white bg-dark">
+  <div class="modal-header p-1 m-1">
+    <h4 class="modal-title pull-left">{{title |titlecase}}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body p-1">
+    <ul *ngIf="list.length">
+      <li *ngFor="let item of list">{{item}}</li>
+    </ul>
+  </div>
+  <div class="modal-footer m-0 p-1">
+    <button type="button" class="btn btn-sm border border-light btn-outline-light" (click)="bsModalRef.hide()">{{closeBtnName}}</button>
+    <button type="button" class="btn btn-sm border border-primary btn-outline-primary" (click)="updateUserRole()">Submit</button>
+  </div>
 </div>
