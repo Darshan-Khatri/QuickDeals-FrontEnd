@@ -36,7 +36,7 @@ export class UserManagementComponent implements OnInit {
     this.roleObject.clear();
     this.adminService.GetUserRole(username).subscribe(response => {
       this.roles = response;
-      this.roles.forEach(x => this.roleObject.set(x,true));
+      this.roles.forEach(x => this.roleObject.set(x, true));
       console.log(this.roles);
       console.log('Role object', this.roleObject);
     }, err => console.log(err),

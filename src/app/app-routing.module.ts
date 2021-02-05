@@ -24,10 +24,10 @@ const routes: Routes = [
       { path: 'newPost', component: NewDealPostComponent },
       { path: 'dealContent/:dealId', component: DealBodyComponent },
       { path: 'admin', component: AdminComponent, canActivate: [AdminGuard] },
+      { path: 'userManagement', component: UserManagementComponent, canActivate: [AdminGuard] },
     ]
   },
   { path: 'register', component: RegisterComponent },
-  { path: 'userManagement', component: UserManagementComponent },
 ];
 
 @NgModule({

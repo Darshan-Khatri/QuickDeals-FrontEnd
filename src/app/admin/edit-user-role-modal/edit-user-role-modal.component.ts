@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { ToastrService } from 'ngx-toastr';
+import { AdminService } from 'src/app/Service/admin.service';
 
 @Component({
   selector: 'app-edit-user-role-modal',
@@ -8,18 +10,37 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class EditUserRoleModalComponent implements OnInit {
 
-
+  roleArray: string[] = [];
   title: string;
   closeBtnName: string;
   userRoles: Map<string, boolean> = new Map();
   availableRoles: string[] = [];
-  constructor(public bsModalRef: BsModalRef) { }
+
+  constructor(
+    public bsModalRef: BsModalRef,
+    private adminService: AdminService,
+    private toastr: ToastrService,
+  ) { }
 
   ngOnInit(): void {
   }
 
   updateUserRole() {
     this.bsModalRef.hide()
+    this.userRoles.forEach((value, key) => {
+      if (value) this.roleArray.push(key);
+    });
+    console.log('roleArray', this.roleArray);
+    if(this.roleArray !== null && this.roleArray.length !== 0)
+    this.editUserRole(this.roleArray);
+  }
+
+  editUserRole(roleEdited: any) {
+    let username = this.title.slice(0, this.title.indexOf(' ')).toLowerCase();
+    this.adminService.EditUserRole(username, roleEdited).subscribe(feedback => {
+      console.log('Update Roles for ' + username, feedback);
+      this.toastr.success(username + ' roles updated successfully');
+    }, err => this.toastr.error(err.error));
   }
 
   GetUpdateUserRole(role: string) {
