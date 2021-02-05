@@ -8,9 +8,11 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class EditUserRoleModalComponent implements OnInit {
 
+
   title: string;
   closeBtnName: string;
-  list: any[] = [];
+  userRoles: Map<string, boolean> = new Map();
+  availableRoles: string[] = [];
   constructor(public bsModalRef: BsModalRef) { }
 
   ngOnInit(): void {
@@ -18,5 +20,14 @@ export class EditUserRoleModalComponent implements OnInit {
 
   updateUserRole() {
     this.bsModalRef.hide()
+  }
+
+  GetUpdateUserRole(role: string) {
+    console.log('role changed', role);
+    if (this.userRoles.has(role)) {
+      this.userRoles.set(role, !(this.userRoles.get(role)));
+    }
+    else this.userRoles.set(role, true);
+    console.log('userRoles', this.userRoles);
   }
 }

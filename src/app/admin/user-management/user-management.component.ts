@@ -1,4 +1,3 @@
-import { TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Member } from 'src/app/models/member';
@@ -16,6 +15,7 @@ export class UserManagementComponent implements OnInit {
   bsModalRef: BsModalRef;
   members: Partial<Member[]> = [];
   roles: string[] = [];
+  roleObject = new Map();
   constructor(
     private bsModalService: BsModalService,
     private memberService: MemberService,
@@ -33,9 +33,12 @@ export class UserManagementComponent implements OnInit {
   }
 
   GetUserRole(username: string) {
+    this.roleObject.clear();
     this.adminService.GetUserRole(username).subscribe(response => {
       this.roles = response;
+      this.roles.forEach(x => this.roleObject.set(x,true));
       console.log(this.roles);
+      console.log('Role object', this.roleObject);
     }, err => console.log(err),
       () => this.openModalWithComponent(username)
     );
@@ -44,10 +47,15 @@ export class UserManagementComponent implements OnInit {
   openModalWithComponent(username: string) {
     const initialState = {
       class: 'modal-dialog-centered',
-      list: this.roles,
+      userRoles: this.roleObject,
+      availableRoles: ['Admin', 'Member', 'Moderator'],
       title: `${username} roles`,
     };
     this.bsModalRef = this.bsModalService.show(EditUserRoleModalComponent, { initialState });
     this.bsModalRef.content.closeBtnName = 'Close';
   }
+
+
+
+
 }
