@@ -13,6 +13,7 @@ export class DealBodyComponent implements OnInit {
 
   dealId: number = 0;
   deal: Deal = null;
+  isCollapsed = true;
   constructor(
     private dealService: DealService,
     private toastr: ToastrService,

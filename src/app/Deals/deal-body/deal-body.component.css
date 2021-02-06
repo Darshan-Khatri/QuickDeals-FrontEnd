@@ -13,3 +13,10 @@ img {
   font-size: 15px;
 }
 
+.commentRow{
+  background-color: rgba(226, 216, 198, 0.733);
+  border: 2px solid blue;
+  height: 300px;
+  overflow: auto;
+}
+

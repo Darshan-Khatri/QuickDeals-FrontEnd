@@ -4,7 +4,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ToastrModule } from 'ngx-toastr';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ModalModule } from 'ngx-bootstrap/modal';
-
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 @NgModule({
   declarations: [],
@@ -16,6 +16,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     }),
     CarouselModule.forRoot(),
     ModalModule.forRoot(),
+    CollapseModule.forRoot(),
   ],
 
   exports: [
@@ -23,6 +24,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ToastrModule,
     CarouselModule,
     ModalModule,
+    CollapseModule,
   ]
 })
 export class SharedModule { }
