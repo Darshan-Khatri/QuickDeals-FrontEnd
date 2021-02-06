@@ -22,9 +22,9 @@ interface Photo {
 }
 
 
-interface Comment {
-  username: string
-  commentText: string
-  commentDate: Date
-  dealId: number
+export interface Comment {
+  username: string;
+  commentText: string;
+  commentDate: Date;
+  dealId: number;
 }

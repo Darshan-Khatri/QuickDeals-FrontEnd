@@ -10,7 +10,7 @@
       <span class="badge badge-secondary" style="font-size: medium;">+{{deal.likes - deal.disLikes}} Deal Score</span>
       <span><button class="btn btn-outline-success p-1 ml-4 mb-1" (click)="addLike(deal.id)" style="width: 40px;">
           <i class="fa fa-thumbs-up">{{deal.likes}}</i></button></span>
-      <span> <button class="btn btn-outline-danger p-1 ml-1 mb-1" style="width: 40px;"> <i
+      <span> <button class="btn btn-outline-danger p-1 ml-1 mb-1" (click)="addDislike(deal.id)" style="width: 40px;"> <i
             class="fa fa-thumbs-down">{{deal.disLikes}}</i></button></span>
       <hr>
       <div class="content" style="white-space: pre-wrap;">
@@ -33,9 +33,9 @@
           <span class="text-muted">Deal Created on </span><i class="fa fa-calendar-times-o fa-1x"></i><span
             class="text-muted"> {{deal.created|date}}</span>
           <div class="float-right mr-5" style="margin-top: -5px;">
-            <span><button class="btn btn-outline-success p-1" style="width: 30px;"><i
+            <span><button class="btn btn-outline-success p-1" (click)="addLike(deal.id)" style="width: 30px;"><i
                   class="fa fa-thumbs-up"></i></button></span>
-            <span><button class="btn btn-outline-danger ml-1 p-1" style="width: 30px;"><i
+            <span><button class="btn btn-outline-danger ml-1 p-1" (click)="addDislike(deal.id)" style="width: 30px;"><i
                   class="fa fa-thumbs-down"></i></button></span>
           </div>
           <span></span>
@@ -59,10 +59,15 @@
 
       <div id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="true">
         <div class="form-group border border-primary mt-1 pt-1 px-2">
-          <textarea class="form-control" placeholder="Leave a Comment" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea [(ngModel)]="userComment"
+          class="form-control" placeholder="Leave a Comment" name="userComment" id="exampleFormControlTextarea1" rows="3"></textarea>
           <div class="row">
-            <button class="btn btn-outline-primary  offset-11 p-2" style="margin-top: 10px; margin-bottom: 10px;">Submit</button>
-            <button (click)="isCollapsed = !isCollapsed"  class="btn  btn-outline-dark offset-10 p-2" style="margin-top: -45px; margin-bottom: 10px;">Cancel</button>
+            <button class="btn btn-outline-primary offset-11 p-2"
+            (click)="addComment()"
+            style="margin-top: 10px; margin-bottom: 10px;">Submit</button>
+            <button
+            (click)="isCollapsed = !isCollapsed"
+            class="btn  btn-outline-dark offset-10 p-2" style="margin-top: -45px; margin-bottom: 10px;">Cancel</button>
           </div>
         </div>
       </div>
