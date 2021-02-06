@@ -1,4 +1,4 @@
-<div *ngIf="deal" class="container card" style="border: 2px solid rgb(111, 0, 139);">
+<div *ngIf="deal" class="container card p-3" style="border: 2px solid rgb(111, 0, 139);">
 
   <div class="row">
     <h2 class="col-12">{{deal.title |titlecase}}</h2>
@@ -54,20 +54,19 @@
 
     <!-- collapsed logic -->
     <div class="col-11">
-      <a (click)="isCollapsed = !isCollapsed" class="btn btn-light btn-block" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic" role="button">
+      <a (click)="isCollapsed = !isCollapsed" class="btn btn-light btn-block" [attr.aria-expanded]="!isCollapsed"
+        aria-controls="collapseBasic" role="button">
         <span class="pull-left"> <i class=" fa fa-1x fa-comment-o"></i> Comment here</span>&nbsp;</a>
 
       <div id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="true">
         <div class="form-group border border-primary mt-1 pt-1 px-2">
-          <textarea [(ngModel)]="userComment"
-          class="form-control" placeholder="Leave a Comment" name="userComment" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea [(ngModel)]="userComment" class="form-control" placeholder="Leave a Comment" name="userComment"
+            id="exampleFormControlTextarea1" rows="3"></textarea>
           <div class="row">
-            <button class="btn btn-outline-primary offset-11 p-2"
-            (click)="addComment()"
-            style="margin-top: 10px; margin-bottom: 10px;">Submit</button>
-            <button
-            (click)="isCollapsed = !isCollapsed"
-            class="btn  btn-outline-dark offset-10 p-2" style="margin-top: -45px; margin-bottom: 10px;">Cancel</button>
+            <button class="btn btn-outline-primary offset-11 p-2" (click)="addComment()"
+              style="margin-top: 10px; margin-bottom: 10px;">Submit</button>
+            <button (click)="isCollapsed = !isCollapsed" class="btn  btn-outline-dark offset-10 p-2"
+              style="margin-top: -45px; margin-bottom: 10px;">Cancel</button>
           </div>
         </div>
       </div>
@@ -75,11 +74,20 @@
     </div>
     <!-- collapsed logic -->
 
-    <div class="commentRow col-12 mt-4">
+    <div class="commentRow col-12 mt-4 p-3">
       <div class="col-12" *ngFor="let comment of deal.comments">
-        <h1>{{comment.username}}</h1>
-        <p>{{comment.commentText}}</p>
-        <p>{{comment.commentDate |date}}</p>
+        <div class="row">
+          <h4 class="col-2"> <i class="fa fa-user-circle-o"></i>
+            {{comment.username |titlecase}}
+          </h4>
+          <p class="col-2 text-muted" >
+            Commented on {{comment.commentDate |date}}
+          </p>
+        </div>
+        <div class="row">
+          <p class="col-10 offset-2" style="white-space:pre-wrap;">{{comment.commentText}}</p>
+          <!-- <p>{{comment.commentDate |date}}</p> -->
+        </div>
         <hr>
       </div>
     </div>

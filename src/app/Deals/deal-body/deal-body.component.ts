@@ -45,18 +45,18 @@ export class DealBodyComponent implements OnInit {
   addLike(dealId: number) {
     this.dealService.AddLike(dealId).subscribe(likeCount => {
       console.log('likeCount', likeCount);
-      console.log('likeCount type of', typeof likeCount.value);
-      if (typeof likeCount.value === 'string') this.toastr.error(likeCount.value);
-      else this.deal.likes = likeCount.value;
+      console.log('likeCount type of', typeof likeCount);
+      if (typeof likeCount === 'string') this.toastr.error(likeCount);
+      else this.deal.likes = likeCount;
     }, err => this.toastr.error(err.error));
   }
 
   addDislike(dealId: number) {
     this.dealService.AddDisLike(dealId).subscribe(dislikeCount => {
       console.log('dislikeCount', dislikeCount);
-      console.log('dislikeCount type of', typeof dislikeCount.value);
-      if (typeof dislikeCount.value === 'string') this.toastr.error(dislikeCount.value);
-      else this.deal.disLikes = dislikeCount.value;
+      console.log('dislikeCount type of', typeof dislikeCount);
+      if (typeof dislikeCount.value === 'string') this.toastr.error(dislikeCount);
+      else this.deal.disLikes = dislikeCount;
     }, err => this.toastr.error(err.error));
   }
 

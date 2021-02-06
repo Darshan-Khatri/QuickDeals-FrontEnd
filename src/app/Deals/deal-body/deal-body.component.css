@@ -14,9 +14,15 @@ img {
 }
 
 .commentRow{
-  background-color: rgba(226, 216, 198, 0.733);
-  border: 2px solid blue;
-  height: 300px;
+  /* background-color: rgba(226, 216, 198, 0.733); */
+  /* border: 2px solid blue; */
+  max-height: 300px;
   overflow: auto;
+}
+
+.text-muted{
+  font-size: 10px;
+  font-weight: 200;
+  margin-top: 5px;
 }
 

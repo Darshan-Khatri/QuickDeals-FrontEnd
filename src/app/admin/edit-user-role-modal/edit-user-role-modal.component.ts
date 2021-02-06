@@ -31,8 +31,8 @@ export class EditUserRoleModalComponent implements OnInit {
       if (value) this.roleArray.push(key);
     });
     console.log('roleArray', this.roleArray);
-    if(this.roleArray !== null && this.roleArray.length !== 0)
-    this.editUserRole(this.roleArray);
+    if(this.roleArray !== null && this.roleArray.length !== 0) this.editUserRole(this.roleArray);
+    else this.toastr.warning("You must select atleast one role")
   }
 
   editUserRole(roleEdited: any) {
@@ -43,6 +43,7 @@ export class EditUserRoleModalComponent implements OnInit {
     }, err => this.toastr.error(err.error));
   }
 
+  //This method is called when ever you check or uncheck any checkbox
   GetUpdateUserRole(role: string) {
     console.log('role changed', role);
     if (this.userRoles.has(role)) {
