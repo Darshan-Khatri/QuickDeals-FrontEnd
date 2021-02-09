@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Deal } from '../models/deal';
-import { AdminService } from '../Service/admin.service';
-import { DealService } from '../Service/deal.service';
+import { Deal } from 'src/app/models/deal';
+import { AdminService } from 'src/app/Service/admin.service';
+import { DealService } from 'src/app/Service/deal.service';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  selector: 'app-deal-selection',
+  templateUrl: './deal-selection.component.html',
+  styleUrls: ['./deal-selection.component.css']
 })
-export class AdminComponent implements OnInit {
+export class DealSelectionComponent implements OnInit {
 
   constructor(
     private dealService: DealService,
     private toastr: ToastrService,
     private adminService: AdminService,
     private router: Router,
-    ) { }
+  ) { }
 
   deals: Deal[] = [];
   ngOnInit(): void {

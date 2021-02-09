@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AccountService } from './Service/account.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from './modules/shared/shared.module';
 import { FrontPageComponent } from './front-page/front-page.component';
@@ -17,9 +16,9 @@ import { DealCardComponent } from './Deals/deal-card/deal-card.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { NewDealPostComponent } from './new-deal-post/new-deal-post.component';
 import { DealBodyComponent } from './Deals/deal-body/deal-body.component';
-import { AdminComponent } from './admin/admin.component';
-import { UserManagementComponent } from './admin/user-management/user-management.component';
-import { EditUserRoleModalComponent } from './admin/edit-user-role-modal/edit-user-role-modal.component';
+import { UserManagementComponent } from './_admin/user-management/user-management.component';
+import { EditUserRoleModalComponent } from './_admin/edit-user-role-modal/edit-user-role-modal.component';
+import { DealSelectionComponent } from './_admin/deal-selection/deal-selection.component';
 
 @NgModule({
   declarations: [
@@ -32,9 +31,9 @@ import { EditUserRoleModalComponent } from './admin/edit-user-role-modal/edit-us
     DealCardComponent,
     NewDealPostComponent,
     DealBodyComponent,
-    AdminComponent,
     UserManagementComponent,
-    EditUserRoleModalComponent
+    EditUserRoleModalComponent,
+    DealSelectionComponent
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of this.members">
+      <tr *ngFor="let item of members">
         <td>{{item.username}}</td>
         <td> <button class=" btn btn-sm btn-outline-dark" (click)="GetUserRole(item.username)">Edit role</button></td>
       </tr>

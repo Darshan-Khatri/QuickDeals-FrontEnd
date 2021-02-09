@@ -8,18 +8,17 @@ import { AccountService } from '../Service/account.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AdminGuard implements CanActivate {
+export class ModeratorGuard implements CanActivate {
 
   constructor(
     private accountService: AccountService,
-    private toastr: ToastrService,
-  ){}
+    private toastr: ToastrService,){}
 
-  canActivate(): Observable<boolean>  {
+  canActivate(): Observable<boolean> {
     return this.accountService.currentUser$.pipe(
       map(user => {
-        if(user.roles.includes('Admin')) return true;
-        this.toastr.error('You are unauthorized to use this service');
+        if(user.roles.some(x => x ==='Moderator' || x === 'Admin')) return true;
+        this.toastr.error('You are unauthorized to use admin service');
       })
     );
   }

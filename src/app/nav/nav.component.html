@@ -21,15 +21,19 @@
             routerLinkActive='active'>Notification</a>
         </li> -->
 
-        <div class="btn-group" *ngIf="(accountService.currentUser$ | async).roles.includes('Admin' || 'Member')" dropdown>
+        <div class="btn-group"
+        *ngIf="(accountService.currentUser$ | async).roles.includes('Admin') || (accountService.currentUser$ | async).roles.includes('Moderator')" dropdown>
           <button id="button-animated" dropdownToggle type="button" class="adminBtn dropdown-toggle"
             aria-controls="dropdown-animated">
-            Admin panel <span class="caret"></span>
+            Services <span class="caret"></span>
           </button>
           <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-animated">
-            <li role="menuitem"><a class="dropdown-item" routerLink='/admin'
-              routerLinkActive='active'>FrontPage deals selection</a></li>
-            <li role="menuitem"><a class="dropdown-item" routerLink='/userManagement' routerLinkActive='active'>Role management</a></li>
+            <li role="menuitem" *ngIf="(accountService.currentUser$ | async).roles.includes('Admin') || (accountService.currentUser$ | async).roles.includes('Moderator')">
+              <a class="dropdown-item" routerLink='/adminOrModerator' routerLinkActive='active'>FrontPage deals selection</a>
+            </li>
+            <li role="menuitem" *ngIf="(accountService.currentUser$ | async).roles.includes('Admin')">
+              <a class="dropdown-item" routerLink='/userManagement' routerLinkActive='active'>Role management</a>
+            </li>
           </ul>
         </div>
       </ng-container>
