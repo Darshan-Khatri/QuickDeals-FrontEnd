@@ -19,6 +19,8 @@ import { DealBodyComponent } from './Deals/deal-body/deal-body.component';
 import { UserManagementComponent } from './_admin/user-management/user-management.component';
 import { EditUserRoleModalComponent } from './_admin/edit-user-role-modal/edit-user-role-modal.component';
 import { DealSelectionComponent } from './_admin/deal-selection/deal-selection.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -43,9 +45,11 @@ import { DealSelectionComponent } from './_admin/deal-selection/deal-selection.c
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
+    NgxSpinnerModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
