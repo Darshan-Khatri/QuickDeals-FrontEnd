@@ -1,18 +1,39 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Comment, Deal } from '../models/deal';
+import { DealParams } from '../models/dealParams';
 import { NewDeal } from '../models/new-deal';
+import { getPaginatedResult, getPaginationHeader } from './paginationHelper';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DealService {
   baseUrl = environment.apiUrl;
-  constructor(private http: HttpClient) { }
+  dealParams: DealParams;
 
-  GetAllDeal() {
-    return this.http.get<Deal[]>(this.baseUrl + 'deals/GetDeals');
+  constructor(private http: HttpClient) {
+    this.dealParams = new DealParams();
+  }
+
+  getDealParams() {
+    return this.dealParams;
+  }
+
+  setDealParams(params: DealParams) {
+    this.dealParams = params;
+  }
+
+  GetAllDeal(dealParams: DealParams) {
+    //return this.http.get<Deal[]>(this.baseUrl + 'deals/GetDeals');
+    let params = getPaginationHeader(this.dealParams.pageNumber, this.dealParams.pageSize);
+    return getPaginatedResult<Deal[]>(this.baseUrl + 'deals/GetDealsPagination',params, this.http).
+    pipe(map(responseFromServer => {
+      console.log('responseFromServer', responseFromServer);
+      return responseFromServer;
+    }));
   }
 
   PostDeal(body: any) {

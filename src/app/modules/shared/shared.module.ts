@@ -5,6 +5,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 @NgModule({
   declarations: [],
@@ -17,6 +18,7 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     CarouselModule.forRoot(),
     ModalModule.forRoot(),
     CollapseModule.forRoot(),
+    PaginationModule.forRoot(),
   ],
 
   exports: [
@@ -25,6 +27,7 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     CarouselModule,
     ModalModule,
     CollapseModule,
+    PaginationModule,
   ]
 })
 export class SharedModule { }

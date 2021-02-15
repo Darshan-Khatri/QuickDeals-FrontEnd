@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Deal } from 'src/app/models/deal';
+import { DealParams } from 'src/app/models/dealParams';
+import { Pagination } from 'src/app/models/pagination';
 import { DealService } from 'src/app/Service/deal.service';
 
 @Component({
@@ -12,21 +14,35 @@ import { DealService } from 'src/app/Service/deal.service';
 export class ForumComponent implements OnInit {
 
   deals: Deal[] = [];
+  pagination: Pagination;
+  dealsParams: DealParams;
+
   constructor(
     private dealService: DealService,
     private toastr: ToastrService,
-    private router: Router) { }
+    private router: Router) {
+      this.dealsParams = dealService.getDealParams();
+    }
 
   ngOnInit(): void {
     this.loadDeals();
   }
 
   loadDeals() {
-    this.dealService.GetAllDeal().subscribe(dealsArray => {
-      this.deals = dealsArray;
-      console.log(this.deals);
+    this.dealService.setDealParams(this.dealsParams);
+    this.dealService.GetAllDeal(this.dealsParams).subscribe(dealsArray => {
+      this.deals = dealsArray.result;
+      this.pagination = dealsArray.pagination;
+      console.log('DealBody',this.deals);
+      console.log('ResponseHeader from server',this.pagination);
     }, err => console.log(err));
   }
+
+  pageChanged(event: any){
+    this.dealsParams.pageNumber = event.page;
+    this.dealService.setDealParams(this.dealsParams);
+    this.loadDeals();
+  };
 
   addLike(dealId: number) {
     // console.log(`event`, event);
@@ -48,4 +64,5 @@ export class ForumComponent implements OnInit {
   // navigateToDealBody(dealId:number, event: Event) {
   //   this.router.navigateByUrl('dealContent/' + dealId);
   // }
+
 }
