@@ -29,7 +29,11 @@ export class DealService {
   GetAllDeal(dealParams: DealParams) {
     //return this.http.get<Deal[]>(this.baseUrl + 'deals/GetDeals');
     let params = getPaginationHeader(this.dealParams.pageNumber, this.dealParams.pageSize);
-    return getPaginatedResult<Deal[]>(this.baseUrl + 'deals/GetDealsPagination',params, this.http).
+
+    params = params.append('category', dealParams.category);
+    params = params.append('price', dealParams.price);
+    params = params.append('rating', dealParams.rating);
+    return getPaginatedResult<Deal[]>(this.baseUrl + 'deals/GetDealsPaginationFilter',params, this.http).
     pipe(map(responseFromServer => {
       console.log('responseFromServer', responseFromServer);
       return responseFromServer;

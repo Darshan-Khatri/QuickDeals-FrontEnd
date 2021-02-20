@@ -44,6 +44,12 @@ export class ForumComponent implements OnInit {
     this.loadDeals();
   };
 
+  resetFilter() {
+    let dealsParams = new DealParams();
+    this.dealsParams = dealsParams;
+    this.loadDeals();
+  }
+
   addLike(dealId: number) {
     // console.log(`event`, event);
     // event.stopPropagation();
