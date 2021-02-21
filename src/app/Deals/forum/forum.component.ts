@@ -45,10 +45,9 @@ export class ForumComponent implements OnInit {
   };
 
   resetFilter() {
-    let dealsParams = new DealParams();
-    this.dealsParams = dealsParams;
+    this.dealsParams = this.dealService.resetFilter();
     this.loadDeals();
-  }
+  };
 
   addLike(dealId: number) {
     // console.log(`event`, event);
@@ -67,8 +66,6 @@ export class ForumComponent implements OnInit {
     }, err => this.toastr.error(err.error));
   }
 
-  // navigateToDealBody(dealId:number, event: Event) {
-  //   this.router.navigateByUrl('dealContent/' + dealId);
-  // }
+
 
 }

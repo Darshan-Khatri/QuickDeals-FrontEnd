@@ -4,5 +4,6 @@ export class DealParams {
   pageSize = 4;
   rating = 'all';
   category = 'all';
-  price = 'lowToHigh';
+  price = 'all';
+  date = 'old';
 }

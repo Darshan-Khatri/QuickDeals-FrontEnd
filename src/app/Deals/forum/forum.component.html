@@ -35,8 +35,11 @@
 
       <label class="ml-3 mr-1" for="price">Price</label>
       <select class="custom-select mr-sm-2" [(ngModel)]="this.dealsParams.price" name="price">
-        <option selected value="lowToHigh">Low to High</option>
-        <option value="highToLow">High to Low</option>
+        <option selected value="all">All</option>
+        <option value="less than 100"> Less than 100$ </option>
+        <option value="101-300">101$ - 300$</option>
+        <option value="301-500">301$ - 500$</option>
+        <option value=">500">More than 500$</option>
       </select>
 
       <label class="ml-3 mr-1" for="category">Category</label>
@@ -48,8 +51,14 @@
         <option value="Other">Other</option>
       </select>
 
-      <button class=" btn btn-primary ml-3" type="submit" >Apply Filters</button>
-      <button class=" btn btn-primary ml-3"  [disabled]="!form.dirty" (click)='resetFilter()'>⟲ Reset</button>
+      <label class="ml-3 mr-1" for="date">Deal posted</label>
+      <select class="custom-select mr-sm-2" [(ngModel)]="this.dealsParams.date" name="date">
+        <option selected value="old">Old</option>
+        <option value="new">New</option>
+      </select>
+
+      <button class=" btn btn-primary ml-3 mt-3 p-2" type="submit" >Apply Filters</button>
+      <button class=" btn btn-primary ml-3 mt-3 p-2"  [disabled]="!form.dirty" (click)='resetFilter()'>⟲ Reset</button>
     </form>
 
   </div>
